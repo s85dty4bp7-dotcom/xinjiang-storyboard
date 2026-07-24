@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#315f54">
+<title>Xinjiang Storyboard 9 Days</title>
+<style>
+:root{--ink:#20342f;--muted:#687873;--paper:#f6f5ef;--jade:#315f54;--jade2:#4d8274;--line:#dce5df;--lav:#8c7a9c;--sand:#cda96c}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans Thai",sans-serif;color:var(--ink);background:linear-gradient(180deg,#f6f5ee,#edf3ef)}
+header{position:sticky;top:0;z-index:10;padding:calc(12px + env(safe-area-inset-top)) 16px 10px;background:rgba(248,248,243,.94);backdrop-filter:blur(16px);border-bottom:1px solid #dce5df}
+header h1{font-size:19px;margin:0} header p{font-size:12px;color:var(--muted);margin:3px 0 0}
+.day-strip{display:flex;gap:8px;overflow-x:auto;padding:11px 0 1px;scrollbar-width:none} .day-strip::-webkit-scrollbar{display:none}
+.day-btn{border:0;background:white;color:var(--ink);min-width:63px;padding:9px;border-radius:15px;box-shadow:0 4px 14px rgba(30,60,51,.08);font-weight:800}
+.day-btn span{display:block;font-size:10px;color:var(--muted);font-weight:500;margin-top:2px} .day-btn.active{background:var(--jade);color:white} .day-btn.active span{color:#dceae5}
+main{max-width:760px;margin:auto;padding:14px 15px calc(36px + env(safe-area-inset-bottom))}
+.day-page{margin-bottom:35px}
+.js .day-page{display:none} .js .day-page.active{display:block}
+.hero{padding:22px;border-radius:27px;background:linear-gradient(140deg,#315f54,#4b8173 60%,#718c91);color:white;box-shadow:0 14px 32px rgba(38,75,64,.2)}
+.kicker{font-size:12px;letter-spacing:1px;opacity:.82} h2{font-size:26px;line-height:1.25;margin:8px 0} .theme{border-top:1px solid rgba(255,255,255,.25);padding-top:14px;margin-top:14px;font-style:italic}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px} .pill{background:rgba(255,255,255,.14);padding:10px;border-radius:13px;font-size:12px;line-height:1.4}
+.panel{margin-top:21px} .panel h3{margin:0 0 10px;font-size:18px} .section-head{display:flex;justify-content:space-between;align-items:center} .section-head span{font-size:12px;color:var(--muted)}
+.card,.common-card{background:rgba(255,255,255,.92);border:1px solid rgba(49,95,84,.11);border-radius:20px;box-shadow:0 7px 24px rgba(43,66,59,.07);margin:11px 0;overflow:hidden}
+summary{list-style:none;display:flex;align-items:center;gap:10px;padding:15px;cursor:pointer} summary::-webkit-details-marker{display:none}
+.num{width:34px;height:34px;border-radius:11px;background:#e2eee9;color:var(--jade);display:grid;place-items:center;font-weight:900;flex:0 0 auto}
+.card-body{padding:0 15px 17px} .label{font-size:11px;font-weight:900;letter-spacing:.8px;color:var(--muted);margin-bottom:5px}
+.shot-label{margin-top:14px}
+.script{border-left:4px solid var(--lav);background:#f4eff6;padding:13px 14px;border-radius:4px 13px 13px 4px;margin:10px 0;line-height:1.68;font-size:14px}
+.script.voice{border-left-color:var(--sand);background:#faf4e7}
+.check{display:flex;gap:10px;align-items:flex-start;padding:10px 4px;border-bottom:1px dashed var(--line);font-size:14px;line-height:1.45}
+.check:last-child{border-bottom:0} .check input{width:20px;height:20px;accent-color:var(--jade);flex:0 0 auto} .check.done span{text-decoration:line-through;color:#8a9692}
+.common-card{padding:5px 13px}
+.transition{background:linear-gradient(135deg,#efe9f2,#faf3e5);padding:16px;border-radius:17px;line-height:1.65}
+.note{width:100%;min-height:120px;border:1px solid var(--line);border-radius:15px;padding:12px;font:inherit;background:white;resize:vertical}
+.notice{background:#fff8d9;border:1px solid #eadb93;border-radius:15px;padding:12px;font-size:13px;line-height:1.55;margin-bottom:14px}
+@media(min-width:700px){h2{font-size:34px}}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<header>
+  <h1>Xinjiang Storyboard</h1>
+  <p>9 Days • รายละเอียดถ่ายทำรายวัน</p>
+  <nav class="day-strip"><button class="day-btn" data-day="1" onclick="showDay(1)">DAY 1<span>25 ก.ค.</span></button><button class="day-btn" data-day="2" onclick="showDay(2)">DAY 2<span>26 ก.ค.</span></button><button class="day-btn" data-day="3" onclick="showDay(3)">DAY 3<span>27 ก.ค.</span></button><button class="day-btn" data-day="4" onclick="showDay(4)">DAY 4<span>28 ก.ค.</span></button><button class="day-btn" data-day="5" onclick="showDay(5)">DAY 5<span>29 ก.ค.</span></button><button class="day-btn" data-day="6" onclick="showDay(6)">DAY 6<span>30 ก.ค.</span></button><button class="day-btn" data-day="7" onclick="showDay(7)">DAY 7<span>31 ก.ค.</span></button><button class="day-btn" data-day="8" onclick="showDay(8)">DAY 8<span>1 ส.ค.</span></button><button class="day-btn" data-day="9" onclick="showDay(9)">DAY 9<span>2 ส.ค.</span></button></nav>
+</header>
+<main>
+  <div class="notice">เนื้อหาทั้งหมดถูกฝังไว้ในไฟล์นี้โดยตรง หากระบบไม่รองรับปุ่มเลือกวัน ให้เลื่อนลงเพื่ออ่าน DAY 1–9 ได้ครบทุกวัน</div>
+  
+    <article class="day-page" id="day-1" data-day="1">
+      <section class="hero">
+        <div class="kicker">DAY 1 • 25 ก.ค. 2026</div>
+        <h2>กรุงเทพฯ → เซี่ยงไฮ้ → อุรุมชี</h2>
+        <div class="theme">“หนึ่งวันเต็มบนเครื่องบิน เพื่อไปยังเมืองที่อยู่ไกลที่สุดแห่งหนึ่งของจีน”</div>
+        <div class="meta">
+          <div class="pill">🏨 SHINLEE HOTEL, Urumqi</div>
+          <div class="pill">🎬 Next: Across the Desert to Burqin</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head"><h3>Scenes วันนี้</h3><span>3 ฉาก</span></div>
+        
+        <details class="card" open>
+          <summary><span class="num">1</span><strong>สนามบินสุวรรณภูมิ</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>สวัสดีครับ วันนี้เป็นวันแรกของทริปซินเจียงเหนือของเรา เราจะเดินทางทั้งหมด 9 วัน เริ่มต้นจากกรุงเทพฯ บินไปต่อเครื่องที่เซี่ยงไฮ้ ก่อนเดินทางข้ามประเทศจีนไปยังอุรุมชี วันนี้ยังไม่มีโปรแกรมเที่ยวครับ เป็นวันเดินทางล้วน ๆ แต่กว่าจะถึงโรงแรมก็น่าจะเกือบเที่ยงคืนเลย</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d1-s1-1"><span>ป้ายเที่ยวบิน</span></label><label class="check"><input type="checkbox" data-key="d1-s1-2"><span>กระเป๋าเดินทาง</span></label><label class="check"><input type="checkbox" data-key="d1-s1-3"><span>หนังสือเดินทางและ Boarding Pass โดยปิดข้อมูลสำคัญ</span></label><label class="check"><input type="checkbox" data-key="d1-s1-4"><span>บรรยากาศสนามบินช่วงเช้า</span></label><label class="check"><input type="checkbox" data-key="d1-s1-5"><span>เดินลากกระเป๋าเข้าสู่ประตูขึ้นเครื่อง</span></label><label class="check"><input type="checkbox" data-key="d1-s1-6"><span>เครื่องบิน Shanghai Airlines</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">2</span><strong>บินกรุงเทพฯ ไปเซี่ยงไฮ้</strong></summary>
+          <div class="card-body">
+            
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>เที่ยวบินแรกออกจากกรุงเทพฯ เวลา 09:50 น. ใช้เวลาประมาณห้าชั่วโมงครึ่ง ก่อนมาถึงสนามบินเซี่ยงไฮ้ผู่ตงในช่วงบ่าย แต่การเดินทางของเรายังไม่ถึงครึ่งทาง เพราะจากเซี่ยงไฮ้ไปอุรุมชี ยังต้องบินต่ออีกเกือบหกชั่วโมง</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d1-s2-1"><span>เครื่องขึ้น</span></label><label class="check"><input type="checkbox" data-key="d1-s2-2"><span>เมฆจากหน้าต่าง</span></label><label class="check"><input type="checkbox" data-key="d1-s2-3"><span>อาหารบนเครื่อง</span></label><label class="check"><input type="checkbox" data-key="d1-s2-4"><span>หน้าจอเส้นทางบิน</span></label><label class="check"><input type="checkbox" data-key="d1-s2-5"><span>สนามบินเซี่ยงไฮ้ผู่ตง</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">3</span><strong>ถึงอุรุมชียามค่ำ</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>ตอนนี้มาถึงอุรุมชีเรียบร้อยแล้วครับ เวลาประมาณเกือบเที่ยงคืน ถึงจะเดินทางมาทั้งวัน แต่ความรู้สึกแรกคือที่นี่แตกต่างจากเมืองจีนที่เราเคยเห็นมาก ทั้งบรรยากาศ อาคาร และผู้คน คืนนี้ขอพักก่อนครับ เพราะพรุ่งนี้เราจะเริ่มเดินทางไกลจากอุรุมชีไปปู้เอ่อร์จิน</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d1-s3-1"><span>ป้าย Urumqi</span></label><label class="check"><input type="checkbox" data-key="d1-s3-2"><span>รับกระเป๋า</span></label><label class="check"><input type="checkbox" data-key="d1-s3-3"><span>หน้าอาคารสนามบิน</span></label><label class="check"><input type="checkbox" data-key="d1-s3-4"><span>รถรับส่ง</span></label><label class="check"><input type="checkbox" data-key="d1-s3-5"><span>แสงไฟเมืองยามค่ำ</span></label><label class="check"><input type="checkbox" data-key="d1-s3-6"><span>เช็กอินโรงแรม</span></label><label class="check"><input type="checkbox" data-key="d1-s3-7"><span>วางกระเป๋าและปิดไฟห้อง</span></label>
+          </div>
+        </details>
+      </section>
+
+      <section class="panel">
+        <h3>Shot ที่ควรถ่ายซ้ำทุกวัน</h3>
+        <div class="common-card"><label class="check"><input type="checkbox" data-key="d1-common-1"><span>เปิดม่านหรือวิวจากโรงแรมตอนเช้า</span></label><label class="check"><input type="checkbox" data-key="d1-common-2"><span>อาหารเช้า</span></label><label class="check"><input type="checkbox" data-key="d1-common-3"><span>ป้ายชื่อโรงแรมหรือเมือง</span></label><label class="check"><input type="checkbox" data-key="d1-common-4"><span>เอากระเป๋าขึ้นรถ</span></label><label class="check"><input type="checkbox" data-key="d1-common-5"><span>แผนที่จุดเริ่มต้นและปลายทาง</span></label><label class="check"><input type="checkbox" data-key="d1-common-6"><span>Time-lapse ถนน 15–30 นาที</span></label><label class="check"><input type="checkbox" data-key="d1-common-7"><span>ป้ายชื่อสถานที่</span></label><label class="check"><input type="checkbox" data-key="d1-common-8"><span>Wide / Medium / Close-up</span></label><label class="check"><input type="checkbox" data-key="d1-common-9"><span>อาหารกลางวันหรือเย็น</span></label><label class="check"><input type="checkbox" data-key="d1-common-10"><span>สรุปความรู้สึกก่อนนอน 20–30 วินาที</span></label></div>
+      </section>
+
+      <section class="panel">
+        <h3>สรุปก่อนนอน</h3>
+        <div class="script">
+          วันนี้สถานที่ที่ประทับใจที่สุดคือ… เพราะ…<br>
+          สิ่งที่ไม่คาดคิดคือ…<br>
+          และพรุ่งนี้เราจะเดินทางไป…
+        </div>
+        <textarea class="note" data-note="d1-note" placeholder="จดความรู้สึก สภาพอากาศ ปัญหาที่พบ หรือ Shot ที่ต้องถ่ายเพิ่ม…"></textarea>
+      </section>
+
+      
+        <section class="panel">
+          <h3>ประโยคเชื่อมวัน</h3>
+          <div class="transition">“หลังจากใช้เวลาทั้งวันบนเครื่องบิน พรุ่งนี้การเดินทางบนพื้นดินของเราจะเริ่มต้นขึ้นจริง ๆ”</div>
+        </section>
+    </article>
+    <article class="day-page" id="day-2" data-day="2">
+      <section class="hero">
+        <div class="kicker">DAY 2 • 26 ก.ค. 2026</div>
+        <h2>อุรุมชี → ถนนทะเลทราย S21 → ปู้เอ่อร์จิน</h2>
+        <div class="theme">“ออกจากเมืองใหญ่ เข้าสู่ทะเลทรายและท้องฟ้าไร้ขอบเขต”</div>
+        <div class="meta">
+          <div class="pill">🏨 Burqin Sanxun View Hotel</div>
+          <div class="pill">🎬 Next: Into the Forests and Lakes of Kanas</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head"><h3>Scenes วันนี้</h3><span>4 ฉาก</span></div>
+        
+        <details class="card" open>
+          <summary><span class="num">1</span><strong>เช้าแรกในอุรุมชี</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>เช้าวันที่สองครับ วันนี้เราจะออกจากอุรุมชี มุ่งหน้าไปยังเมืองปู้เอ่อร์จิน ระยะทางค่อนข้างไกล ใช้เวลาอยู่บนรถเกือบทั้งวัน แต่เส้นทางที่เราจะผ่านคือถนน S21 ซึ่งตัดผ่านพื้นที่ทะเลทรายของซินเจียง วันนี้จึงไม่ใช่แค่การนั่งรถจากเมืองหนึ่งไปอีกเมืองหนึ่ง แต่เป็นวันที่เราจะเริ่มเห็นว่าซินเจียงกว้างใหญ่แค่ไหน</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d2-s1-1"><span>วิวจากหน้าต่างโรงแรม</span></label><label class="check"><input type="checkbox" data-key="d2-s1-2"><span>อาหารเช้า</span></label><label class="check"><input type="checkbox" data-key="d2-s1-3"><span>หน้าโรงแรม</span></label><label class="check"><input type="checkbox" data-key="d2-s1-4"><span>เตรียมน้ำ ขนม กล้อง Power Bank</span></label><label class="check"><input type="checkbox" data-key="d2-s1-5"><span>รถ VIP 7 ที่นั่ง</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">2</span><strong>ถนนทะเลทราย S21</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>ตรงนี้ลมแรงมากครับ แล้วก็แห้งมากด้วย มองไปทางไหนก็แทบไม่มีต้นไม้ แต่เสน่ห์ของมันคือความเวิ้งว้าง เหมือนเรากำลังขับรถผ่านฉากในภาพยนตร์</div>
+            </div>
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>ถนน S21 เป็นหนึ่งในเส้นทางสำคัญที่ช่วยย่นระยะเวลาระหว่างอุรุมชีกับอัลไต สองข้างทางแทบไม่มีบ้านเรือน มีเพียงทะเลทราย ทุ่งหญ้าแห้ง และเส้นขอบฟ้าที่ทอดยาวออกไป นี่เป็นภาพแรกที่ทำให้ผมเริ่มเข้าใจว่า ซินเจียงมีขนาดใหญ่กว่าที่เรารู้สึกจากการมองในแผนที่มาก</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d2-s2-1"><span>ป้าย S21</span></label><label class="check"><input type="checkbox" data-key="d2-s2-2"><span>Time-lapse จากในรถ</span></label><label class="check"><input type="checkbox" data-key="d2-s2-3"><span>ถนนเส้นตรง</span></label><label class="check"><input type="checkbox" data-key="d2-s2-4"><span>เนินทราย</span></label><label class="check"><input type="checkbox" data-key="d2-s2-5"><span>กังหันลมหรือเสาไฟ</span></label><label class="check"><input type="checkbox" data-key="d2-s2-6"><span>รถวิ่งสวนกัน</span></label><label class="check"><input type="checkbox" data-key="d2-s2-7"><span>ภาพผ่านกระจกด้านข้าง</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">3</span><strong>ทะเลสาบอูหลุนกู่และจุดพัก</strong></summary>
+          <div class="card-body">
+            
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>ก่อนเข้าสู่เมืองปู้เอ่อร์จิน ภูมิประเทศเริ่มเปลี่ยนจากทะเลทรายแห้งแล้ง กลายเป็นพื้นที่ที่มีทะเลสาบและแม่น้ำ ความเปลี่ยนแปลงนี้เกิดขึ้นภายในเวลาเพียงไม่กี่ชั่วโมง จากสีน้ำตาลของทะเลทราย ค่อย ๆ เปลี่ยนเป็นสีเขียวและสีฟ้า</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d2-s3-1"><span>จุดพักรถ</span></label><label class="check"><input type="checkbox" data-key="d2-s3-2"><span>ทะเลสาบหรือพื้นที่ชุ่มน้ำ</span></label><label class="check"><input type="checkbox" data-key="d2-s3-3"><span>นกและแนวชายฝั่ง</span></label><label class="check"><input type="checkbox" data-key="d2-s3-4"><span>ผู้คนท้องถิ่น</span></label><label class="check"><input type="checkbox" data-key="d2-s3-5"><span>ภาพมุมกว้าง</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">4</span><strong>ถึงปู้เอ่อร์จิน</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>หลังจากเดินทางมาตลอดทั้งวัน ตอนนี้เรามาถึงปู้เอ่อร์จินแล้วครับ เมืองนี้เป็นเหมือนประตูเข้าสู่เขตคานาส บรรยากาศเงียบสงบและต่างจากอุรุมชีอย่างชัดเจน พรุ่งนี้เราจะเข้าไปยังหนึ่งในสถานที่ที่ผมรอคอยมากที่สุดของทริป นั่นคือคานาสครับ</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d2-s4-1"><span>ป้ายเมือง</span></label><label class="check"><input type="checkbox" data-key="d2-s4-2"><span>ถนนและบ้านเรือน</span></label><label class="check"><input type="checkbox" data-key="d2-s4-3"><span>บรรยากาศช่วงเย็น</span></label><label class="check"><input type="checkbox" data-key="d2-s4-4"><span>หน้าโรงแรม</span></label><label class="check"><input type="checkbox" data-key="d2-s4-5"><span>อาหารค่ำ</span></label>
+          </div>
+        </details>
+      </section>
+
+      <section class="panel">
+        <h3>Shot ที่ควรถ่ายซ้ำทุกวัน</h3>
+        <div class="common-card"><label class="check"><input type="checkbox" data-key="d2-common-1"><span>เปิดม่านหรือวิวจากโรงแรมตอนเช้า</span></label><label class="check"><input type="checkbox" data-key="d2-common-2"><span>อาหารเช้า</span></label><label class="check"><input type="checkbox" data-key="d2-common-3"><span>ป้ายชื่อโรงแรมหรือเมือง</span></label><label class="check"><input type="checkbox" data-key="d2-common-4"><span>เอากระเป๋าขึ้นรถ</span></label><label class="check"><input type="checkbox" data-key="d2-common-5"><span>แผนที่จุดเริ่มต้นและปลายทาง</span></label><label class="check"><input type="checkbox" data-key="d2-common-6"><span>Time-lapse ถนน 15–30 นาที</span></label><label class="check"><input type="checkbox" data-key="d2-common-7"><span>ป้ายชื่อสถานที่</span></label><label class="check"><input type="checkbox" data-key="d2-common-8"><span>Wide / Medium / Close-up</span></label><label class="check"><input type="checkbox" data-key="d2-common-9"><span>อาหารกลางวันหรือเย็น</span></label><label class="check"><input type="checkbox" data-key="d2-common-10"><span>สรุปความรู้สึกก่อนนอน 20–30 วินาที</span></label></div>
+      </section>
+
+      <section class="panel">
+        <h3>สรุปก่อนนอน</h3>
+        <div class="script">
+          วันนี้สถานที่ที่ประทับใจที่สุดคือ… เพราะ…<br>
+          สิ่งที่ไม่คาดคิดคือ…<br>
+          และพรุ่งนี้เราจะเดินทางไป…
+        </div>
+        <textarea class="note" data-note="d2-note" placeholder="จดความรู้สึก สภาพอากาศ ปัญหาที่พบ หรือ Shot ที่ต้องถ่ายเพิ่ม…"></textarea>
+      </section>
+
+      
+        <section class="panel">
+          <h3>ประโยคเชื่อมวัน</h3>
+          <div class="transition">“เมื่อผ่านทะเลทรายมาแล้ว เส้นทางวันต่อไปจะพาเราเข้าสู่ป่าและทะเลสาบของคานาส”</div>
+        </section>
+    </article>
+    <article class="day-page" id="day-3" data-day="3">
+      <section class="hero">
+        <div class="kicker">DAY 3 • 27 ก.ค. 2026</div>
+        <h2>ปู้เอ่อร์จิน → คานาส → หาดห้าสี → ปู้เอ่อร์จิน</h2>
+        <div class="theme">“วันที่ธรรมชาติเปลี่ยนจากทะเลทรายเป็นโลกสีเขียว”</div>
+        <div class="meta">
+          <div class="pill">🏨 Burqin Sanxun View Hotel</div>
+          <div class="pill">🎬 Next: From Green Kanas to the World of Rock and Desert</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head"><h3>Scenes วันนี้</h3><span>4 ฉาก</span></div>
+        
+        <details class="card" open>
+          <summary><span class="num">1</span><strong>เดินทางเข้าสู่คานาส</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>วันนี้เรากำลังเดินทางจากปู้เอ่อร์จินเข้าสู่เขตคานาสครับ จากเมื่อวานที่สองข้างทางยังเป็นทะเลทราย วันนี้ภูมิประเทศเปลี่ยนไปอย่างสิ้นเชิง มีทั้งภูเขา ป่าสน และลำธาร คานาสถือเป็นหนึ่งในสถานที่ธรรมชาติที่มีชื่อเสียงที่สุดของซินเจียงเหนือ</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d3-s1-1"><span>ถนนยามเช้า</span></label><label class="check"><input type="checkbox" data-key="d3-s1-2"><span>ภูเขาค่อย ๆ ปรากฏ</span></label><label class="check"><input type="checkbox" data-key="d3-s1-3"><span>ต้นสน</span></label><label class="check"><input type="checkbox" data-key="d3-s1-4"><span>ฝูงสัตว์ข้างทาง</span></label><label class="check"><input type="checkbox" data-key="d3-s1-5"><span>ประตูอุทยาน</span></label><label class="check"><input type="checkbox" data-key="d3-s1-6"><span>รถ Shuttle Bus</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">2</span><strong>ทะเลสาบคานาส</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>สถานที่จริงสวยกว่าที่เห็นในรูปมากครับ โดยเฉพาะความกว้างและความเงียบ ต่อให้มีนักท่องเที่ยวค่อนข้างเยอะ แต่เมื่อมองออกไปกลางทะเลสาบ เรายังรู้สึกว่าธรรมชาติที่นี่ใหญ่กว่าตัวเรามาก</div>
+            </div>
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>สิ่งแรกที่เห็นคือสีของน้ำ ซึ่งเปลี่ยนไปตามแสงและสภาพอากาศ บางช่วงเป็นสีฟ้า บางช่วงเป็นสีเขียวอมเทา โดยมีแนวภูเขาและป่าสนล้อมรอบ คานาสเป็นพื้นที่ทางตอนเหนือใกล้พรมแดนหลายประเทศ จึงมีทั้งธรรมชาติและวัฒนธรรมที่แตกต่างจากเมืองจีนทั่วไป</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d3-s2-1"><span>Reveal Shot พ้นแนวต้นไม้</span></label><label class="check"><input type="checkbox" data-key="d3-s2-2"><span>น้ำสีฟ้าอมเขียว</span></label><label class="check"><input type="checkbox" data-key="d3-s2-3"><span>ภูเขาและป่าสน</span></label><label class="check"><input type="checkbox" data-key="d3-s2-4"><span>เรือในทะเลสาบ</span></label><label class="check"><input type="checkbox" data-key="d3-s2-5"><span>Close-up คลื่นน้ำ</span></label><label class="check"><input type="checkbox" data-key="d3-s2-6"><span>ยืนมองทะเลสาบ</span></label><label class="check"><input type="checkbox" data-key="d3-s2-7"><span>ภาพจากจุดสูง</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">3</span><strong>จุดชมวิวสามโค้ง</strong></summary>
+          <div class="card-body">
+            
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>อีกหนึ่งภาพจำของคานาสคือลำน้ำที่คดเคี้ยวอยู่ระหว่างป่าสน แต่ละจุดมีรูปร่างและสีของน้ำแตกต่างกัน โดยเฉพาะเมื่อมองจากมุมสูง จะเห็นแม่น้ำวางตัวเหมือนริบบิ้นอยู่กลางหุบเขา</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d3-s3-1"><span>Moon Bay</span></label><label class="check"><input type="checkbox" data-key="d3-s3-2"><span>Dragon Bay</span></label><label class="check"><input type="checkbox" data-key="d3-s3-3"><span>Fairy Bay</span></label><label class="check"><input type="checkbox" data-key="d3-s3-4"><span>ถนนรูปตัว S</span></label><label class="check"><input type="checkbox" data-key="d3-s3-5"><span>แม่น้ำผ่านป่าสน</span></label><label class="check"><input type="checkbox" data-key="d3-s3-6"><span>สะพานไม้</span></label><label class="check"><input type="checkbox" data-key="d3-s3-7"><span>Reflection บนผิวน้ำ</span></label><label class="check"><input type="checkbox" data-key="d3-s3-8"><span>เดินตามทางธรรมชาติ</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">4</span><strong>หาดห้าสี Wucaitan</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>ช่วงเย็นเรามาถึงหาดห้าสี หรือ Wucaitan ครับ ที่นี่ไม่ได้เป็นชายหาดแบบทะเล แต่เป็นภูมิประเทศที่เกิดจากการกัดเซาะ จนเกิดเป็นชั้นหินรูปร่างแปลกตาและมีหลายสี เวลาที่เหมาะที่สุดคือช่วงเย็น เพราะแสงแดดจะทำให้สีของหินชัดขึ้นมาก</div>
+            </div>
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>ภายในวันเดียว เราได้เห็นทั้งป่าสน ทะเลสาบ แม่น้ำ และภูมิประเทศแบบกึ่งทะเลทราย นี่เป็นวันที่ทำให้เห็นชัดที่สุดว่า ความหลากหลายคือเสน่ห์สำคัญของซินเจียง</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d3-s4-1"><span>แสงเย็นกระทบภูมิประเทศ</span></label><label class="check"><input type="checkbox" data-key="d3-s4-2"><span>ชั้นหินแดง ส้ม เหลือง น้ำตาล</span></label><label class="check"><input type="checkbox" data-key="d3-s4-3"><span>แม่น้ำเออร์ติช</span></label><label class="check"><input type="checkbox" data-key="d3-s4-4"><span>Silhouette</span></label><label class="check"><input type="checkbox" data-key="d3-s4-5"><span>Time-lapse พระอาทิตย์ตก</span></label>
+          </div>
+        </details>
+      </section>
+
+      <section class="panel">
+        <h3>Shot ที่ควรถ่ายซ้ำทุกวัน</h3>
+        <div class="common-card"><label class="check"><input type="checkbox" data-key="d3-common-1"><span>เปิดม่านหรือวิวจากโรงแรมตอนเช้า</span></label><label class="check"><input type="checkbox" data-key="d3-common-2"><span>อาหารเช้า</span></label><label class="check"><input type="checkbox" data-key="d3-common-3"><span>ป้ายชื่อโรงแรมหรือเมือง</span></label><label class="check"><input type="checkbox" data-key="d3-common-4"><span>เอากระเป๋าขึ้นรถ</span></label><label class="check"><input type="checkbox" data-key="d3-common-5"><span>แผนที่จุดเริ่มต้นและปลายทาง</span></label><label class="check"><input type="checkbox" data-key="d3-common-6"><span>Time-lapse ถนน 15–30 นาที</span></label><label class="check"><input type="checkbox" data-key="d3-common-7"><span>ป้ายชื่อสถานที่</span></label><label class="check"><input type="checkbox" data-key="d3-common-8"><span>Wide / Medium / Close-up</span></label><label class="check"><input type="checkbox" data-key="d3-common-9"><span>อาหารกลางวันหรือเย็น</span></label><label class="check"><input type="checkbox" data-key="d3-common-10"><span>สรุปความรู้สึกก่อนนอน 20–30 วินาที</span></label></div>
+      </section>
+
+      <section class="panel">
+        <h3>สรุปก่อนนอน</h3>
+        <div class="script">
+          วันนี้สถานที่ที่ประทับใจที่สุดคือ… เพราะ…<br>
+          สิ่งที่ไม่คาดคิดคือ…<br>
+          และพรุ่งนี้เราจะเดินทางไป…
+        </div>
+        <textarea class="note" data-note="d3-note" placeholder="จดความรู้สึก สภาพอากาศ ปัญหาที่พบ หรือ Shot ที่ต้องถ่ายเพิ่ม…"></textarea>
+      </section>
+
+      
+        <section class="panel">
+          <h3>ประโยคเชื่อมวัน</h3>
+          <div class="transition">“จากธรรมชาติสีเขียวของคานาส พรุ่งนี้ภูมิประเทศจะเปลี่ยนกลับไปเป็นโลกของหินและทะเลทรายอีกครั้ง”</div>
+        </section>
+    </article>
+    <article class="day-page" id="day-4" data-day="4">
+      <section class="hero">
+        <div class="kicker">DAY 4 • 28 ก.ค. 2026</div>
+        <h2>ปู้เอ่อร์จิน → อูเอ่อร์เหอ → เมืองปีศาจ → ขุยถุน</h2>
+        <div class="theme">“ธรรมชาติที่ดูเหมือนซากเมืองจากดาวดวงอื่น”</div>
+        <div class="meta">
+          <div class="pill">🏨 โรงแรมในขุยถุน</div>
+          <div class="pill">🎬 Next: Into Ili: Blue Lakes, Snow Mountains and Flowers</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head"><h3>Scenes วันนี้</h3><span>3 ฉาก</span></div>
+        
+        <details class="card" open>
+          <summary><span class="num">1</span><strong>ออกจากปู้เอ่อร์จิน</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>วันนี้เราจะเดินทางลงใต้จากปู้เอ่อร์จินไปยังขุยถุน และแวะที่อูเอ่อร์เหอ ไฮไลต์คือเมืองปีศาจ หรือ World Ghost City สถานที่ที่มีภูมิประเทศแปลกตาจากแรงลมและการกัดเซาะเป็นเวลายาวนาน</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d4-s1-1"><span>หน้าโรงแรม</span></label><label class="check"><input type="checkbox" data-key="d4-s1-2"><span>เก็บสัมภาระ</span></label><label class="check"><input type="checkbox" data-key="d4-s1-3"><span>แผนที่เส้นทาง</span></label><label class="check"><input type="checkbox" data-key="d4-s1-4"><span>ถนนออกจากเมือง</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">2</span><strong>เมืองปีศาจอูเอ่อร์เหอ</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>ตอนกลางวันยังดูสวยและอลังการครับ แต่ถ้าให้มาเดินตรงนี้คนเดียวตอนกลางคืน ผมขอไม่มาดีกว่า</div>
+            </div>
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>ชื่อเมืองปีศาจมาจากเสียงลมที่พัดผ่านช่องว่างของชั้นหิน โดยเฉพาะในอดีตที่บริเวณนี้ยังไม่มีสิ่งก่อสร้างมากนัก เสียงลมอาจฟังคล้ายเสียงร้องหรือเสียงหวีด รูปร่างของหินหลายจุดดูคล้ายปราสาท กำแพง และซากเมืองโบราณ ทั้งที่ทั้งหมดเกิดจากกระบวนการตามธรรมชาติ</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d4-s2-1"><span>ประตูทางเข้า</span></label><label class="check"><input type="checkbox" data-key="d4-s2-2"><span>รถนำเที่ยว</span></label><label class="check"><input type="checkbox" data-key="d4-s2-3"><span>รูปทรงหิน</span></label><label class="check"><input type="checkbox" data-key="d4-s2-4"><span>พื้นที่แห้งแล้ง</span></label><label class="check"><input type="checkbox" data-key="d4-s2-5"><span>ลมพัดฝุ่น</span></label><label class="check"><input type="checkbox" data-key="d4-s2-6"><span>คนตัวเล็กกับภูมิประเทศใหญ่</span></label><label class="check"><input type="checkbox" data-key="d4-s2-7"><span>บันทึกเสียงลม</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">3</span><strong>เดินทางถึงขุยถุน</strong></summary>
+          <div class="card-body">
+            
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>จากอูเอ่อร์เหอ เราเดินทางต่อไปยังขุยถุน ซึ่งเป็นจุดพักก่อนเข้าสู่พื้นที่อีหลี ตั้งแต่วันพรุ่งนี้เป็นต้นไป ภาพของซินเจียงจะค่อย ๆ เปลี่ยนจากทะเลทรายและชั้นหิน ไปสู่ทะเลสาบ ภูเขาหิมะ และทุ่งดอกไม้</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d4-s3-1"><span>ถนนยาวช่วงบ่าย</span></label><label class="check"><input type="checkbox" data-key="d4-s3-2"><span>พระอาทิตย์ตกจากรถ</span></label><label class="check"><input type="checkbox" data-key="d4-s3-3"><span>เมืองขุยถุน</span></label><label class="check"><input type="checkbox" data-key="d4-s3-4"><span>เช็กอินโรงแรม</span></label><label class="check"><input type="checkbox" data-key="d4-s3-5"><span>มื้อค่ำ</span></label>
+          </div>
+        </details>
+      </section>
+
+      <section class="panel">
+        <h3>Shot ที่ควรถ่ายซ้ำทุกวัน</h3>
+        <div class="common-card"><label class="check"><input type="checkbox" data-key="d4-common-1"><span>เปิดม่านหรือวิวจากโรงแรมตอนเช้า</span></label><label class="check"><input type="checkbox" data-key="d4-common-2"><span>อาหารเช้า</span></label><label class="check"><input type="checkbox" data-key="d4-common-3"><span>ป้ายชื่อโรงแรมหรือเมือง</span></label><label class="check"><input type="checkbox" data-key="d4-common-4"><span>เอากระเป๋าขึ้นรถ</span></label><label class="check"><input type="checkbox" data-key="d4-common-5"><span>แผนที่จุดเริ่มต้นและปลายทาง</span></label><label class="check"><input type="checkbox" data-key="d4-common-6"><span>Time-lapse ถนน 15–30 นาที</span></label><label class="check"><input type="checkbox" data-key="d4-common-7"><span>ป้ายชื่อสถานที่</span></label><label class="check"><input type="checkbox" data-key="d4-common-8"><span>Wide / Medium / Close-up</span></label><label class="check"><input type="checkbox" data-key="d4-common-9"><span>อาหารกลางวันหรือเย็น</span></label><label class="check"><input type="checkbox" data-key="d4-common-10"><span>สรุปความรู้สึกก่อนนอน 20–30 วินาที</span></label></div>
+      </section>
+
+      <section class="panel">
+        <h3>สรุปก่อนนอน</h3>
+        <div class="script">
+          วันนี้สถานที่ที่ประทับใจที่สุดคือ… เพราะ…<br>
+          สิ่งที่ไม่คาดคิดคือ…<br>
+          และพรุ่งนี้เราจะเดินทางไป…
+        </div>
+        <textarea class="note" data-note="d4-note" placeholder="จดความรู้สึก สภาพอากาศ ปัญหาที่พบ หรือ Shot ที่ต้องถ่ายเพิ่ม…"></textarea>
+      </section>
+
+      
+        <section class="panel">
+          <h3>ประโยคเชื่อมวัน</h3>
+          <div class="transition">“เมื่อผ่านเมืองปีศาจมาแล้ว เรากำลังเข้าสู่เขตอีหลี ซึ่งเป็นช่วงที่สีเขียวและสีฟ้าจะกลับมาเต็มจอ”</div>
+        </section>
+    </article>
+    <article class="day-page" id="day-5" data-day="5">
+      <section class="hero">
+        <div class="kicker">DAY 5 • 29 ก.ค. 2026</div>
+        <h2>ขุยถุน → ไซ่หลี่มู่ → กั่วจื่อโกว → ลาเวนเดอร์ → อี้หนิง</h2>
+        <div class="theme">“วันที่สวยที่สุดวันหนึ่งของทริป”</div>
+        <div class="meta">
+          <div class="pill">🏨 Meilhao Lizhi Hotel, Yining</div>
+          <div class="pill">🎬 Next: From Lakes and Lavender to Mountain Grasslands</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head"><h3>Scenes วันนี้</h3><span>4 ฉาก</span></div>
+        
+        <details class="card" open>
+          <summary><span class="num">1</span><strong>ทะเลสาบไซ่หลี่มู่</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>ไซ่หลี่มู่เป็นทะเลสาบที่ผมรู้สึกว่าสวยแบบไม่ต้องแต่งสีเลยครับ น้ำสีฟ้ามาก และฉากด้านหลังมีทั้งภูเขา ทุ่งหญ้า รวมถึงฝูงสัตว์ แต่ลมค่อนข้างแรง ถึงจะเป็นช่วงฤดูร้อนก็ควรมีเสื้อกันลมติดมาด้วย</div>
+            </div>
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>หลังจากเดินทางผ่านพื้นที่แห้งแล้งมาหลายวัน เช้าวันนี้เรากำลังเข้าใกล้ทะเลสาบไซ่หลี่มู่ ทันทีที่รถพ้นแนวเขา สีฟ้าของทะเลสาบก็ปรากฏขึ้นตรงหน้า จนแทบไม่เหมือนสถานที่จริง</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d5-s1-1"><span>Reveal จากรถหรืออุโมงค์</span></label><label class="check"><input type="checkbox" data-key="d5-s1-2"><span>ทะเลสาบเต็มเฟรม</span></label><label class="check"><input type="checkbox" data-key="d5-s1-3"><span>น้ำสีฟ้าเข้ม</span></label><label class="check"><input type="checkbox" data-key="d5-s1-4"><span>ภูเขาด้านหลัง</span></label><label class="check"><input type="checkbox" data-key="d5-s1-5"><span>ทุ่งหญ้าริมน้ำ</span></label><label class="check"><input type="checkbox" data-key="d5-s1-6"><span>ดอกไม้ป่า</span></label><label class="check"><input type="checkbox" data-key="d5-s1-7"><span>ม้าและแกะ</span></label><label class="check"><input type="checkbox" data-key="d5-s1-8"><span>เสียงลมและน้ำจริง</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">2</span><strong>สะพานกั่วจื่อโกว</strong></summary>
+          <div class="card-body">
+            
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>จากทะเลสาบไซ่หลี่มู่ เราจะผ่านหุบเขากั่วจื่อโกว ซึ่งเป็นประตูเข้าสู่เขตอีหลี สะพานขนาดใหญ่ที่พาดผ่านหุบเขาไม่ได้เป็นเพียงโครงสร้างทางวิศวกรรม แต่กลายเป็นส่วนหนึ่งของทิวทัศน์ไปแล้ว</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d5-s2-1"><span>สะพานจากจุดชมวิว</span></label><label class="check"><input type="checkbox" data-key="d5-s2-2"><span>รถวิ่งบนสะพาน</span></label><label class="check"><input type="checkbox" data-key="d5-s2-3"><span>หุบเขา</span></label><label class="check"><input type="checkbox" data-key="d5-s2-4"><span>Telephoto ดึงสะพานเข้าหาภูเขา</span></label><label class="check"><input type="checkbox" data-key="d5-s2-5"><span>ภาพขณะข้ามสะพาน</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">3</span><strong>ทุ่งลาเวนเดอร์</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>หนึ่งในสิ่งที่หลายคนรอคอยของเส้นทางอีหลีคือทุ่งลาเวนเดอร์ครับ ช่วงเวลาการบานขึ้นอยู่กับสภาพอากาศและการเก็บเกี่ยวในแต่ละปี ดังนั้นพื้นที่จริงอาจมีทั้งแปลงที่กำลังบานเต็มที่และแปลงที่เก็บเกี่ยวไปแล้ว แต่แค่ได้กลิ่นลาเวนเดอร์และเห็นสีม่วงตัดกับท้องฟ้า ก็ถือว่าเป็นอีกหนึ่งบรรยากาศที่แตกต่างจากทุกวันที่ผ่านมา</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d5-s3-1"><span>ทุ่งสีม่วง</span></label><label class="check"><input type="checkbox" data-key="d5-s3-2"><span>Close-up ดอกลาเวนเดอร์</span></label><label class="check"><input type="checkbox" data-key="d5-s3-3"><span>ผึ้งและแมลง</span></label><label class="check"><input type="checkbox" data-key="d5-s3-4"><span>เดินผ่านแถวลาเวนเดอร์</span></label><label class="check"><input type="checkbox" data-key="d5-s3-5"><span>Portrait</span></label><label class="check"><input type="checkbox" data-key="d5-s3-6"><span>ภาพมุมต่ำ</span></label><label class="check"><input type="checkbox" data-key="d5-s3-7"><span>เบื้องหลังการถ่ายภาพ</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">4</span><strong>เข้าเมืองอี้หนิง</strong></summary>
+          <div class="card-body">
+            
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>ปลายทางของวันนี้คืออี้หนิง เมืองสำคัญของเขตอีหลี หลังจากอยู่กับธรรมชาติมาหลายวัน ที่นี่ทำให้เราได้กลับมาเห็นชีวิตในเมืองอีกครั้ง แต่ยังคงมีกลิ่นอายของวัฒนธรรมเอเชียกลางอย่างชัดเจน</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d5-s4-1"><span>ถนนในเมือง</span></label><label class="check"><input type="checkbox" data-key="d5-s4-2"><span>ร้านค้า</span></label><label class="check"><input type="checkbox" data-key="d5-s4-3"><span>สถาปัตยกรรมท้องถิ่น</span></label><label class="check"><input type="checkbox" data-key="d5-s4-4"><span>ร้านอาหาร</span></label><label class="check"><input type="checkbox" data-key="d5-s4-5"><span>ผู้คนช่วงค่ำ</span></label><label class="check"><input type="checkbox" data-key="d5-s4-6"><span>โรงแรม</span></label>
+          </div>
+        </details>
+      </section>
+
+      <section class="panel">
+        <h3>Shot ที่ควรถ่ายซ้ำทุกวัน</h3>
+        <div class="common-card"><label class="check"><input type="checkbox" data-key="d5-common-1"><span>เปิดม่านหรือวิวจากโรงแรมตอนเช้า</span></label><label class="check"><input type="checkbox" data-key="d5-common-2"><span>อาหารเช้า</span></label><label class="check"><input type="checkbox" data-key="d5-common-3"><span>ป้ายชื่อโรงแรมหรือเมือง</span></label><label class="check"><input type="checkbox" data-key="d5-common-4"><span>เอากระเป๋าขึ้นรถ</span></label><label class="check"><input type="checkbox" data-key="d5-common-5"><span>แผนที่จุดเริ่มต้นและปลายทาง</span></label><label class="check"><input type="checkbox" data-key="d5-common-6"><span>Time-lapse ถนน 15–30 นาที</span></label><label class="check"><input type="checkbox" data-key="d5-common-7"><span>ป้ายชื่อสถานที่</span></label><label class="check"><input type="checkbox" data-key="d5-common-8"><span>Wide / Medium / Close-up</span></label><label class="check"><input type="checkbox" data-key="d5-common-9"><span>อาหารกลางวันหรือเย็น</span></label><label class="check"><input type="checkbox" data-key="d5-common-10"><span>สรุปความรู้สึกก่อนนอน 20–30 วินาที</span></label></div>
+      </section>
+
+      <section class="panel">
+        <h3>สรุปก่อนนอน</h3>
+        <div class="script">
+          วันนี้สถานที่ที่ประทับใจที่สุดคือ… เพราะ…<br>
+          สิ่งที่ไม่คาดคิดคือ…<br>
+          และพรุ่งนี้เราจะเดินทางไป…
+        </div>
+        <textarea class="note" data-note="d5-note" placeholder="จดความรู้สึก สภาพอากาศ ปัญหาที่พบ หรือ Shot ที่ต้องถ่ายเพิ่ม…"></textarea>
+      </section>
+
+      
+        <section class="panel">
+          <h3>ประโยคเชื่อมวัน</h3>
+          <div class="transition">“จากทะเลสาบและทุ่งลาเวนเดอร์ เส้นทางต่อไปจะพาเราขึ้นสู่ทุ่งหญ้าบนภูเขา”</div>
+        </section>
+    </article>
+    <article class="day-page" id="day-6" data-day="6">
+      <section class="hero">
+        <div class="kicker">DAY 6 • 30 ก.ค. 2026</div>
+        <h2>อี้หนิง → ทุ่งหญ้าคาลาจุน → เท่อเค่อซือ</h2>
+        <div class="theme">“โลกของทุ่งหญ้าและเมืองที่สร้างตามผังปากว้า”</div>
+        <div class="meta">
+          <div class="pill">🏨 โรงแรมในเท่อเค่อซือ</div>
+          <div class="pill">🎬 Next: Closer to the Sky at Nalati</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head"><h3>Scenes วันนี้</h3><span>3 ฉาก</span></div>
+        
+        <details class="card" open>
+          <summary><span class="num">1</span><strong>เดินทางเข้าสู่คาลาจุน</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>วันนี้เราจะเดินทางจากอี้หนิงประมาณสามชั่วโมงครึ่ง ไปยังทุ่งหญ้าคาลาจุน ภูมิประเทศของอีหลีต่างจากตอนเหนืออย่างชัดเจน ที่นี่เต็มไปด้วยทุ่งหญ้าสีเขียว เนินเขา และเทือกเขาที่อยู่ไกลออกไป</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d6-s1-1"><span>ถนนจากอี้หนิง</span></label><label class="check"><input type="checkbox" data-key="d6-s1-2"><span>หมู่บ้าน</span></label><label class="check"><input type="checkbox" data-key="d6-s1-3"><span>ฝูงแกะ</span></label><label class="check"><input type="checkbox" data-key="d6-s1-4"><span>แนวภูเขา</span></label><label class="check"><input type="checkbox" data-key="d6-s1-5"><span>เปลี่ยนรถอุทยาน</span></label><label class="check"><input type="checkbox" data-key="d6-s1-6"><span>เดินขึ้นจุดชมวิว</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">2</span><strong>ทุ่งหญ้าคาลาจุน</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>ภาพตรงหน้าดูเหมือน Wallpaper มากครับ ที่สำคัญคือพื้นที่กว้างมาก จุดที่เราเห็นในกล้องอาจดูใกล้ แต่เดินจริงใช้เวลาพอสมควรเลย</div>
+            </div>
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>คาลาจุนไม่ได้เป็นทุ่งราบเรียบ แต่ประกอบด้วยเนินเขาต่อเนื่องกัน เมื่อมีแสงและเงาพาดผ่าน เนินหญ้าแต่ละลูกจะเกิดมิติคล้ายผืนผ้าสีเขียวที่กำลังเคลื่อนไหว</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d6-s2-1"><span>Panorama ทุ่งหญ้า</span></label><label class="check"><input type="checkbox" data-key="d6-s2-2"><span>ม้า</span></label><label class="check"><input type="checkbox" data-key="d6-s2-3"><span>คนเลี้ยงสัตว์</span></label><label class="check"><input type="checkbox" data-key="d6-s2-4"><span>ดอกไม้ป่า</span></label><label class="check"><input type="checkbox" data-key="d6-s2-5"><span>หญ้าเคลื่อนไหวตามลม</span></label><label class="check"><input type="checkbox" data-key="d6-s2-6"><span>เดินบนสันเนิน</span></label><label class="check"><input type="checkbox" data-key="d6-s2-7"><span>Long Shot</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">3</span><strong>เมืองแปดทิศเท่อเค่อซือ</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>ตอนเดินอยู่บนถนนอาจยังไม่รู้สึกว่าผังเมืองแปลกแค่ไหนครับ แต่พอดูแผนที่จากมุมสูง จะเห็นรูปทรงแปดทิศชัดเจนมาก</div>
+            </div>
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>ปลายทางของวันนี้คือเท่อเค่อซือ เมืองที่มีชื่อเสียงจากผังเมืองรูปปากว้าหรือแปดทิศ ถนนสายหลักแผ่ออกจากใจกลางเมือง ก่อนเชื่อมต่อกันเป็นวงรอบ ทำให้มองจากด้านบนแล้วมีรูปแบบแตกต่างจากเมืองทั่วไป</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d6-s3-1"><span>แผนผังเมืองจากป้ายหรือจุดสูง</span></label><label class="check"><input type="checkbox" data-key="d6-s3-2"><span>วงเวียนกลางเมือง</span></label><label class="check"><input type="checkbox" data-key="d6-s3-3"><span>ถนนแยกหลายทิศ</span></label><label class="check"><input type="checkbox" data-key="d6-s3-4"><span>อาคารและผู้คนช่วงเย็น</span></label><label class="check"><input type="checkbox" data-key="d6-s3-5"><span>กราฟิกผังปากว้า</span></label>
+          </div>
+        </details>
+      </section>
+
+      <section class="panel">
+        <h3>Shot ที่ควรถ่ายซ้ำทุกวัน</h3>
+        <div class="common-card"><label class="check"><input type="checkbox" data-key="d6-common-1"><span>เปิดม่านหรือวิวจากโรงแรมตอนเช้า</span></label><label class="check"><input type="checkbox" data-key="d6-common-2"><span>อาหารเช้า</span></label><label class="check"><input type="checkbox" data-key="d6-common-3"><span>ป้ายชื่อโรงแรมหรือเมือง</span></label><label class="check"><input type="checkbox" data-key="d6-common-4"><span>เอากระเป๋าขึ้นรถ</span></label><label class="check"><input type="checkbox" data-key="d6-common-5"><span>แผนที่จุดเริ่มต้นและปลายทาง</span></label><label class="check"><input type="checkbox" data-key="d6-common-6"><span>Time-lapse ถนน 15–30 นาที</span></label><label class="check"><input type="checkbox" data-key="d6-common-7"><span>ป้ายชื่อสถานที่</span></label><label class="check"><input type="checkbox" data-key="d6-common-8"><span>Wide / Medium / Close-up</span></label><label class="check"><input type="checkbox" data-key="d6-common-9"><span>อาหารกลางวันหรือเย็น</span></label><label class="check"><input type="checkbox" data-key="d6-common-10"><span>สรุปความรู้สึกก่อนนอน 20–30 วินาที</span></label></div>
+      </section>
+
+      <section class="panel">
+        <h3>สรุปก่อนนอน</h3>
+        <div class="script">
+          วันนี้สถานที่ที่ประทับใจที่สุดคือ… เพราะ…<br>
+          สิ่งที่ไม่คาดคิดคือ…<br>
+          และพรุ่งนี้เราจะเดินทางไป…
+        </div>
+        <textarea class="note" data-note="d6-note" placeholder="จดความรู้สึก สภาพอากาศ ปัญหาที่พบ หรือ Shot ที่ต้องถ่ายเพิ่ม…"></textarea>
+      </section>
+
+      
+        <section class="panel">
+          <h3>ประโยคเชื่อมวัน</h3>
+          <div class="transition">“คาลาจุนทำให้เราเห็นความกว้างใหญ่ของอีหลี แต่นาลาตีในวันพรุ่งนี้จะพาเราเข้าใกล้ท้องฟ้ามากกว่าเดิม”</div>
+        </section>
+    </article>
+    <article class="day-page" id="day-7" data-day="7">
+      <section class="hero">
+        <div class="kicker">DAY 7 • 31 ก.ค. 2026</div>
+        <h2>เท่อเค่อซือ → ทุ่งหญ้าลอยฟ้านาลาตี → นาลาตี</h2>
+        <div class="theme">“เส้นทางสู่ทุ่งหญ้าบนฟ้า”</div>
+        <div class="meta">
+          <div class="pill">🏨 Mehood Lestie, Nalati</div>
+          <div class="pill">🎬 Next: The Long Road Back to Urumqi</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head"><h3>Scenes วันนี้</h3><span>4 ฉาก</span></div>
+        
+        <details class="card" open>
+          <summary><span class="num">1</span><strong>จากเท่อเค่อซือสู่นาลาตี</strong></summary>
+          <div class="card-body">
+            
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>วันนี้เราออกจากเท่อเค่อซือ มุ่งหน้าไปยังนาลาตี อีกหนึ่งพื้นที่ทุ่งหญ้าที่มีชื่อเสียงที่สุดของซินเจียง จุดเด่นของที่นี่คือทุ่งหญ้าบนพื้นที่สูง ซึ่งมักถูกเรียกว่าทุ่งหญ้าลอยฟ้า</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d7-s1-1"><span>เก็บกระเป๋า</span></label><label class="check"><input type="checkbox" data-key="d7-s1-2"><span>ถนนเลียบภูเขา</span></label><label class="check"><input type="checkbox" data-key="d7-s1-3"><span>แม่น้ำ</span></label><label class="check"><input type="checkbox" data-key="d7-s1-4"><span>หมู่บ้านคาซัค</span></label><label class="check"><input type="checkbox" data-key="d7-s1-5"><span>ม้าและฝูงแกะข้างทาง</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">2</span><strong>ขึ้นรถอุทยาน</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>การเที่ยวภายในนาลาตีจะต้องใช้รถของอุทยานครับ รถจะพาเราแวะตามจุดชมวิวประมาณสามจุด แต่ละจุดจะเห็นมุมของทุ่งหญ้าที่ต่างกัน บางจุดเห็นหุบเขา บางจุดเห็นภูเขาหิมะ และบางจุดมีฝูงม้าอยู่ใกล้มาก</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d7-s2-1"><span>คิวรถอุทยาน</span></label><label class="check"><input type="checkbox" data-key="d7-s2-2"><span>รถวิ่งขึ้นภูเขา</span></label><label class="check"><input type="checkbox" data-key="d7-s2-3"><span>ภาพจากหน้าต่าง</span></label><label class="check"><input type="checkbox" data-key="d7-s2-4"><span>ป้ายจุดชมวิว</span></label><label class="check"><input type="checkbox" data-key="d7-s2-5"><span>เมฆเงาพาดบนทุ่งหญ้า</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">3</span><strong>ทุ่งหญ้าลอยฟ้า</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>ถ้าให้เลือกสถานที่ที่อยากหยุดเวลาไว้สักหนึ่งชั่วโมง ผมน่าจะเลือกตรงนี้ครับ ไม่มีเสียงเมือง ไม่มีเสียงรถ มีเพียงลมกับเสียงสัตว์อยู่ไกล ๆ เป็นบรรยากาศที่สงบมาก</div>
+            </div>
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>คำว่าทุ่งหญ้าลอยฟ้าไม่ได้หมายความว่าทุ่งหญ้าลอยอยู่จริง แต่เกิดจากตำแหน่งที่อยู่สูงเหนือหุบเขา เมื่อมองออกไป จะเห็นทุ่งหญ้าเชื่อมต่อกับแนวเมฆและภูเขา จนรู้สึกเหมือนอยู่ใกล้ท้องฟ้ามากกว่าปกติ</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d7-s3-1"><span>Wide Shot</span></label><label class="check"><input type="checkbox" data-key="d7-s3-2"><span>ถนนเล็กกลางทุ่ง</span></label><label class="check"><input type="checkbox" data-key="d7-s3-3"><span>บ้านไม้หรือกระโจม</span></label><label class="check"><input type="checkbox" data-key="d7-s3-4"><span>ม้ากินหญ้า</span></label><label class="check"><input type="checkbox" data-key="d7-s3-5"><span>นักท่องเที่ยวขี่ม้า</span></label><label class="check"><input type="checkbox" data-key="d7-s3-6"><span>ภูเขาและก้อนเมฆ</span></label><label class="check"><input type="checkbox" data-key="d7-s3-7"><span>Slow Motion เดินผ่านทุ่ง</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">4</span><strong>คืนสุดท้ายในเขตอีหลี</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>คืนนี้เป็นคืนสุดท้ายที่เราจะพักท่ามกลางพื้นที่ทุ่งหญ้าครับ พรุ่งนี้ต้องเดินทางกลับอุรุมชี ซึ่งเป็นระยะทางไกลและใช้เวลาเกือบทั้งวัน ตอนนี้เราเดินทางมาไกลจากจุดเริ่มต้นมากแล้ว และเหลืออีกเพียงหนึ่งวันก่อนบินกลับประเทศไทย</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d7-s4-1"><span>โรงแรม</span></label><label class="check"><input type="checkbox" data-key="d7-s4-2"><span>พระอาทิตย์ตก</span></label><label class="check"><input type="checkbox" data-key="d7-s4-3"><span>มื้อค่ำ</span></label><label class="check"><input type="checkbox" data-key="d7-s4-4"><span>จัดกระเป๋า</span></label><label class="check"><input type="checkbox" data-key="d7-s4-5"><span>ดูแผนที่เส้นทางที่ผ่านมา</span></label>
+          </div>
+        </details>
+      </section>
+
+      <section class="panel">
+        <h3>Shot ที่ควรถ่ายซ้ำทุกวัน</h3>
+        <div class="common-card"><label class="check"><input type="checkbox" data-key="d7-common-1"><span>เปิดม่านหรือวิวจากโรงแรมตอนเช้า</span></label><label class="check"><input type="checkbox" data-key="d7-common-2"><span>อาหารเช้า</span></label><label class="check"><input type="checkbox" data-key="d7-common-3"><span>ป้ายชื่อโรงแรมหรือเมือง</span></label><label class="check"><input type="checkbox" data-key="d7-common-4"><span>เอากระเป๋าขึ้นรถ</span></label><label class="check"><input type="checkbox" data-key="d7-common-5"><span>แผนที่จุดเริ่มต้นและปลายทาง</span></label><label class="check"><input type="checkbox" data-key="d7-common-6"><span>Time-lapse ถนน 15–30 นาที</span></label><label class="check"><input type="checkbox" data-key="d7-common-7"><span>ป้ายชื่อสถานที่</span></label><label class="check"><input type="checkbox" data-key="d7-common-8"><span>Wide / Medium / Close-up</span></label><label class="check"><input type="checkbox" data-key="d7-common-9"><span>อาหารกลางวันหรือเย็น</span></label><label class="check"><input type="checkbox" data-key="d7-common-10"><span>สรุปความรู้สึกก่อนนอน 20–30 วินาที</span></label></div>
+      </section>
+
+      <section class="panel">
+        <h3>สรุปก่อนนอน</h3>
+        <div class="script">
+          วันนี้สถานที่ที่ประทับใจที่สุดคือ… เพราะ…<br>
+          สิ่งที่ไม่คาดคิดคือ…<br>
+          และพรุ่งนี้เราจะเดินทางไป…
+        </div>
+        <textarea class="note" data-note="d7-note" placeholder="จดความรู้สึก สภาพอากาศ ปัญหาที่พบ หรือ Shot ที่ต้องถ่ายเพิ่ม…"></textarea>
+      </section>
+
+      
+        <section class="panel">
+          <h3>ประโยคเชื่อมวัน</h3>
+          <div class="transition">“หลังจากมาถึงจุดที่ไกลที่สุดของเส้นทางแล้ว ถึงเวลาขับรถวนกลับไปยังอุรุมชี”</div>
+        </section>
+    </article>
+    <article class="day-page" id="day-8" data-day="8">
+      <section class="hero">
+        <div class="kicker">DAY 8 • 1 ส.ค. 2026</div>
+        <h2>นาลาตี → เส้นทางภูเขา → อุรุมชี</h2>
+        <div class="theme">“ถนนสายยาวที่พาเรากลับสู่จุดเริ่มต้น”</div>
+        <div class="meta">
+          <div class="pill">🏨 Mercure Urumqi Doowin Wanda Plaza</div>
+          <div class="pill">🎬 Next: The Final Journey Home</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head"><h3>Scenes วันนี้</h3><span>3 ฉาก</span></div>
+        
+        <details class="card" open>
+          <summary><span class="num">1</span><strong>ออกจากนาลาตี</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>วันนี้เป็นวันเดินทางไกลที่สุดอีกวันหนึ่งครับ จากนาลาตีกลับอุรุมชี ใช้เวลาประมาณเจ็ดชั่วโมงหรืออาจมากกว่านั้น ขึ้นอยู่กับสภาพถนนและจุดที่แวะ ถึงจะเป็นวันนั่งรถ แต่เส้นทางกลับยังมีทิวทัศน์ให้ดูตลอดทาง ทั้งภูเขา หุบเขา แม่น้ำ และทุ่งกว้าง</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d8-s1-1"><span>เช็กเอาต์</span></label><label class="check"><input type="checkbox" data-key="d8-s1-2"><span>กระเป๋าขึ้นรถ</span></label><label class="check"><input type="checkbox" data-key="d8-s1-3"><span>วิวหน้าโรงแรม</span></label><label class="check"><input type="checkbox" data-key="d8-s1-4"><span>บอกลาทุ่งหญ้า</span></label><label class="check"><input type="checkbox" data-key="d8-s1-5"><span>แผนที่เส้นทางกลับ</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">2</span><strong>Road Trip Montage</strong></summary>
+          <div class="card-body">
+            
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>ตลอดหลายวันที่ผ่านมา เราเห็นภูมิประเทศเปลี่ยนไปแทบทุกวัน จากเมืองใหญ่อุรุมชี สู่ทะเลทรายของถนน S21 จากป่าสนและทะเลสาบของคานาส ไปจนถึงทุ่งหญ้าของอีหลี ระหว่างเดินทางกลับ ภาพทั้งหมดค่อย ๆ เชื่อมต่อกัน ทำให้เข้าใจว่าซินเจียงไม่ได้มีสถานที่สวยเพียงจุดใดจุดหนึ่ง แต่ความพิเศษอยู่ที่การเดินทางระหว่างแต่ละพื้นที่ด้วย</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d8-s2-1"><span>Time-lapse ถนน</span></label><label class="check"><input type="checkbox" data-key="d8-s2-2"><span>อุโมงค์</span></label><label class="check"><input type="checkbox" data-key="d8-s2-3"><span>สะพาน</span></label><label class="check"><input type="checkbox" data-key="d8-s2-4"><span>แม่น้ำข้างทาง</span></label><label class="check"><input type="checkbox" data-key="d8-s2-5"><span>ฝูงสัตว์</span></label><label class="check"><input type="checkbox" data-key="d8-s2-6"><span>จุดพักรถ</span></label><label class="check"><input type="checkbox" data-key="d8-s2-7"><span>ซื้อขนม</span></label><label class="check"><input type="checkbox" data-key="d8-s2-8"><span>งีบหลับแบบขำ ๆ</span></label><label class="check"><input type="checkbox" data-key="d8-s2-9"><span>ภูมิประเทศสีเขียวกลับสู่พื้นที่แห้ง</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">3</span><strong>กลับถึงอุรุมชี</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>หลังจากอยู่บนรถเกือบทั้งวัน ตอนนี้เรากลับมาถึงอุรุมชีเรียบร้อยแล้วครับ ความรู้สึกแปลกมาก เพราะเมืองที่เคยเป็นจุดเริ่มต้น ตอนนี้กลายเป็นสัญญาณว่าการเดินทางกำลังจะจบลง คืนนี้เราจะพักที่อุรุมชีอีกหนึ่งคืน และพรุ่งนี้เช้าต้องออกไปสนามบินตั้งแต่ประมาณเจ็ดโมง</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d8-s3-1"><span>อาคารในเมืองเริ่มมากขึ้น</span></label><label class="check"><input type="checkbox" data-key="d8-s3-2"><span>รถติด</span></label><label class="check"><input type="checkbox" data-key="d8-s3-3"><span>ป้ายอุรุมชี</span></label><label class="check"><input type="checkbox" data-key="d8-s3-4"><span>โรงแรม</span></label><label class="check"><input type="checkbox" data-key="d8-s3-5"><span>มื้อเย็นสุดท้าย</span></label><label class="check"><input type="checkbox" data-key="d8-s3-6"><span>เก็บสัมภาระ</span></label>
+          </div>
+        </details>
+      </section>
+
+      <section class="panel">
+        <h3>Shot ที่ควรถ่ายซ้ำทุกวัน</h3>
+        <div class="common-card"><label class="check"><input type="checkbox" data-key="d8-common-1"><span>เปิดม่านหรือวิวจากโรงแรมตอนเช้า</span></label><label class="check"><input type="checkbox" data-key="d8-common-2"><span>อาหารเช้า</span></label><label class="check"><input type="checkbox" data-key="d8-common-3"><span>ป้ายชื่อโรงแรมหรือเมือง</span></label><label class="check"><input type="checkbox" data-key="d8-common-4"><span>เอากระเป๋าขึ้นรถ</span></label><label class="check"><input type="checkbox" data-key="d8-common-5"><span>แผนที่จุดเริ่มต้นและปลายทาง</span></label><label class="check"><input type="checkbox" data-key="d8-common-6"><span>Time-lapse ถนน 15–30 นาที</span></label><label class="check"><input type="checkbox" data-key="d8-common-7"><span>ป้ายชื่อสถานที่</span></label><label class="check"><input type="checkbox" data-key="d8-common-8"><span>Wide / Medium / Close-up</span></label><label class="check"><input type="checkbox" data-key="d8-common-9"><span>อาหารกลางวันหรือเย็น</span></label><label class="check"><input type="checkbox" data-key="d8-common-10"><span>สรุปความรู้สึกก่อนนอน 20–30 วินาที</span></label></div>
+      </section>
+
+      <section class="panel">
+        <h3>สรุปก่อนนอน</h3>
+        <div class="script">
+          วันนี้สถานที่ที่ประทับใจที่สุดคือ… เพราะ…<br>
+          สิ่งที่ไม่คาดคิดคือ…<br>
+          และพรุ่งนี้เราจะเดินทางไป…
+        </div>
+        <textarea class="note" data-note="d8-note" placeholder="จดความรู้สึก สภาพอากาศ ปัญหาที่พบ หรือ Shot ที่ต้องถ่ายเพิ่ม…"></textarea>
+      </section>
+
+      
+        <section class="panel">
+          <h3>ประโยคเชื่อมวัน</h3>
+          <div class="transition">“กลับมาถึงจุดเริ่มต้นแล้ว เหลือเพียงการเดินทางช่วงสุดท้ายกลับประเทศไทย”</div>
+        </section>
+    </article>
+    <article class="day-page" id="day-9" data-day="9">
+      <section class="hero">
+        <div class="kicker">DAY 9 • 2 ส.ค. 2026</div>
+        <h2>อุรุมชี → เซี่ยงไฮ้ → กรุงเทพฯ</h2>
+        <div class="theme">“เดินทางกลับ พร้อมความทรงจำจากซินเจียง”</div>
+        <div class="meta">
+          <div class="pill">🏨 เดินทางกลับประเทศไทย</div>
+          <div class="pill">🎬 Next: Trip Complete</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head"><h3>Scenes วันนี้</h3><span>3 ฉาก</span></div>
+        
+        <details class="card" open>
+          <summary><span class="num">1</span><strong>เช็กเอาต์และไปสนามบิน</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>เช้าวันสุดท้ายครับ ตอนนี้เราเดินทางมาถึงสนามบินอุรุมชีเทียนซานแล้ว วันนี้จะบินจากอุรุมชีไปเซี่ยงไฮ้ แล้วต่อเครื่องกลับกรุงเทพฯ คาดว่าจะถึงประเทศไทยประมาณสี่ทุ่ม</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d9-s1-1"><span>นาฬิกาตอนเช้า</span></label><label class="check"><input type="checkbox" data-key="d9-s1-2"><span>ห้องก่อนออก</span></label><label class="check"><input type="checkbox" data-key="d9-s1-3"><span>กระเป๋าใบเดิมจากวันแรก</span></label><label class="check"><input type="checkbox" data-key="d9-s1-4"><span>ถนนอุรุมชียามเช้า</span></label><label class="check"><input type="checkbox" data-key="d9-s1-5"><span>สนามบินเทียนซาน</span></label><label class="check"><input type="checkbox" data-key="d9-s1-6"><span>เช็กอินเที่ยวบิน</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">2</span><strong>สรุปทริประหว่างรอขึ้นเครื่อง</strong></summary>
+          <div class="card-body">
+            
+            <div class="script">
+              <div class="label">พูดหน้ากล้อง</div>
+              <div>หลังจากเดินทางครบ 9 วัน สิ่งที่ประทับใจที่สุดไม่ใช่เพียงสถานที่ใดสถานที่หนึ่งครับ แต่เป็นความหลากหลายของเส้นทางทั้งหมด เราเริ่มจากเมืองอุรุมชี ผ่านทะเลทรายไปยังปู้เอ่อร์จิน เห็นทะเลสาบและป่าสนที่คานาส ผ่านภูมิประเทศประหลาดของเมืองปีศาจ ก่อนเข้าสู่ทะเลสาบไซ่หลี่มู่ ทุ่งลาเวนเดอร์ และทุ่งหญ้าของอีหลี ทุกวันให้ความรู้สึกเหมือนเดินทางไปคนละประเทศ ทั้งที่ยังอยู่ภายในซินเจียงเหมือนเดิม</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d9-s2-1"><span>นั่งริมหน้าต่างสนามบิน</span></label><label class="check"><input type="checkbox" data-key="d9-s2-2"><span>พูดในมุมเงียบ</span></label><label class="check"><input type="checkbox" data-key="d9-s2-3"><span>B-roll ผู้โดยสารและเครื่องบิน</span></label>
+          </div>
+        </details>
+        <details class="card" open>
+          <summary><span class="num">3</span><strong>บินกลับประเทศไทย</strong></summary>
+          <div class="card-body">
+            
+            <div class="script voice">
+              <div class="label">VOICE-OVER</div>
+              <div>จากอุรุมชี เราบินกลับมาที่เซี่ยงไฮ้ ก่อนต่อเครื่องเที่ยวสุดท้ายกลับกรุงเทพฯ การเดินทางรอบซินเจียงเหนือครั้งนี้จบลงแล้ว แต่ภาพของทะเลสาบสีฟ้า ถนนทะเลทราย และทุ่งหญ้ากว้างใหญ่ คงยังอยู่ในความทรงจำไปอีกนาน</div>
+            </div>
+            <div class="label shot-label">SHOT LIST</div>
+            <label class="check"><input type="checkbox" data-key="d9-s3-1"><span>เครื่องบินขึ้นจากอุรุมชี</span></label><label class="check"><input type="checkbox" data-key="d9-s3-2"><span>ภูเขาหรือทะเลทรายจากมุมสูง</span></label><label class="check"><input type="checkbox" data-key="d9-s3-3"><span>เปลี่ยนเครื่องที่เซี่ยงไฮ้</span></label><label class="check"><input type="checkbox" data-key="d9-s3-4"><span>พระอาทิตย์ตกเหนือเมฆ</span></label><label class="check"><input type="checkbox" data-key="d9-s3-5"><span>ถึงสุวรรณภูมิ</span></label><label class="check"><input type="checkbox" data-key="d9-s3-6"><span>รับกระเป๋า</span></label><label class="check"><input type="checkbox" data-key="d9-s3-7"><span>Welcome to Thailand</span></label>
+          </div>
+        </details>
+      </section>
+
+      <section class="panel">
+        <h3>Shot ที่ควรถ่ายซ้ำทุกวัน</h3>
+        <div class="common-card"><label class="check"><input type="checkbox" data-key="d9-common-1"><span>เปิดม่านหรือวิวจากโรงแรมตอนเช้า</span></label><label class="check"><input type="checkbox" data-key="d9-common-2"><span>อาหารเช้า</span></label><label class="check"><input type="checkbox" data-key="d9-common-3"><span>ป้ายชื่อโรงแรมหรือเมือง</span></label><label class="check"><input type="checkbox" data-key="d9-common-4"><span>เอากระเป๋าขึ้นรถ</span></label><label class="check"><input type="checkbox" data-key="d9-common-5"><span>แผนที่จุดเริ่มต้นและปลายทาง</span></label><label class="check"><input type="checkbox" data-key="d9-common-6"><span>Time-lapse ถนน 15–30 นาที</span></label><label class="check"><input type="checkbox" data-key="d9-common-7"><span>ป้ายชื่อสถานที่</span></label><label class="check"><input type="checkbox" data-key="d9-common-8"><span>Wide / Medium / Close-up</span></label><label class="check"><input type="checkbox" data-key="d9-common-9"><span>อาหารกลางวันหรือเย็น</span></label><label class="check"><input type="checkbox" data-key="d9-common-10"><span>สรุปความรู้สึกก่อนนอน 20–30 วินาที</span></label></div>
+      </section>
+
+      <section class="panel">
+        <h3>สรุปก่อนนอน</h3>
+        <div class="script">
+          วันนี้สถานที่ที่ประทับใจที่สุดคือ… เพราะ…<br>
+          สิ่งที่ไม่คาดคิดคือ…<br>
+          และพรุ่งนี้เราจะเดินทางไป…
+        </div>
+        <textarea class="note" data-note="d9-note" placeholder="จดความรู้สึก สภาพอากาศ ปัญหาที่พบ หรือ Shot ที่ต้องถ่ายเพิ่ม…"></textarea>
+      </section>
+
+      
+    </article>
+</main>
+<script>
+function showDay(n){
+  document.querySelectorAll('.day-page').forEach(x=>x.classList.toggle('active',Number(x.dataset.day)===n));
+  document.querySelectorAll('.day-btn').forEach(x=>x.classList.toggle('active',Number(x.dataset.day)===n));
+  localStorage.setItem('xj-active-day',String(n));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('input[type=checkbox]').forEach(c=>{
+  const k='xj-'+c.dataset.key;
+  c.checked=localStorage.getItem(k)==='1';
+  c.closest('.check').classList.toggle('done',c.checked);
+  c.addEventListener('change',()=>{
+    localStorage.setItem(k,c.checked?'1':'0');
+    c.closest('.check').classList.toggle('done',c.checked);
+  });
+});
+document.querySelectorAll('textarea[data-note]').forEach(t=>{
+  const k='xj-'+t.dataset.note;
+  t.value=localStorage.getItem(k)||'';
+  t.addEventListener('input',()=>localStorage.setItem(k,t.value));
+});
+showDay(Number(localStorage.getItem('xj-active-day')||1));
+</script>
+</body>
+</html>
